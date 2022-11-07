@@ -1,27 +1,31 @@
-package sec05;
+package sec04;
 
-class Animal {
-	public Animal(String s) {
-		System.out.println("동물 : " + s);
+interface Animal {
+	void sound();
+}
+
+class Dog implements Animal {
+	public void sound() {
+		System.out.println("멍멍~~");
 	}
 }
 
-class Mammal extends Animal {
-	public Mammal() {
-		// super();
-		super("원숭이");
-		System.out.println("포유류 : 원숭이");
-	}
-
-	public Mammal(String s) {
-		super(s);
-		System.out.println("포유류 : " + s);
+class Cuckoo implements Animal {
+	public void sound() {
+		System.out.println("뻐꾹~~");
 	}
 }
 
 public class AnimalDemo {
 	public static void main(String[] args) {
-		Mammal ape = new Mammal();
-		Mammal lion = new Mammal("사자");
+		Dog d = new Dog();
+		Cuckoo c = new Cuckoo();
+
+		makeSound(d);
+		makeSound(c);
+	}
+
+	static void makeSound(Animal a) {
+		a.sound();
 	}
 }
