@@ -1,31 +1,33 @@
-package sec05;
+package sec03;
 
-public class CircleDemo {
-	public static void main(String[] args) {
-		Circle myCircle = new Circle();
+class Circle implements Comparable {
+	double radius;
 
-		myCircle.setRadius(10.0);
+	public Circle(double radius) {
+		this.radius = radius;
+	}
 
-		myCircle.show(myCircle.getRadius(), myCircle.findArea());
+	public int compareTo(Object o) {
+		Circle c = (Circle) o;
+		if (this.radius > c.radius)
+			return 1;
+		else if (this.radius == c.radius)
+			return 0;
+		else
+			return -1;
 	}
 }
 
-class Circle {
-	private double radius;
+public class CircleDemo {
+	public static void main(String[] args) {
+		Circle c1 = new Circle(5.0);
+		Circle c2 = new Circle(6.0);
 
-	public double getRadius() {
-		return radius;
-	}
-
-	public void setRadius(double r) {
-		this.radius = r;
-	}
-
-	double findArea() {
-		return 3.14 * radius * radius;
-	}
-
-	void show(double x, double y) {
-		System.out.printf("반지름 = %.1f, 넓이 = %.1f\n", x, y);
+		if (c1.compareTo(c2) > 0)
+			System.out.println("첫 번째 원이 두 번째 원보다 크다.");
+		else if (c1.compareTo(c2) == 0)
+			System.out.println("두 원의 크기가 같다.");
+		else
+			System.out.println("첫 번째 원이 두 번째 원보다 작다.");
 	}
 }
