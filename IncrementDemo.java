@@ -1,16 +1,18 @@
-package sec05;
+package sec03;
 
 public class IncrementDemo {
 	public static void main(String[] args) {
-		int x = 0;
-		System.out.println("increment() 메서드를 호출하기 전의 x는 " + x);
+		int[] x = { 0 };
+		System.out.println("호출 전의 x[0] = " + x[0]);
+
 		increment(x);
-		System.out.println("increment() 메서드를 호출한 후의 x는 " + x);
+		System.out.println("호출 후의 x[0] = " + x[0]);
 	}
 
-	public static void increment(int n) {
-		System.out.println("increment() 메서드를 시작할 때의 n은 " + n);
-		n++;
-		System.out.println("increment() 메서드가 끝날 때의 n은 " + n);
+	public static void increment(int[] n) {
+		System.out.print("increment() 메서드 안에서 ");
+		System.out.print("n[0] = " + n[0] + " ---> ");
+		n[0]++;
+		System.out.println("n[0] = " + n[0]);
 	}
 }
